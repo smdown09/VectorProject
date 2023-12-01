@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from math import atan2
+import math
 
 @dataclass
 class Angle:
@@ -73,14 +73,27 @@ def convertGeoToDistance():
     geoCoord = inputGeo()
     degCoord2 = geoToDeg(geoCoord)
 
+    angle = math.acos(math.sin(math.radians(degCoord1.latitude)) *
+                      math.sin(math.radians(degCoord2.latitude))
+                      +
+                      math.cos(math.radians(degCoord1.latitude)) *
+                      math.cos(math.radians(degCoord2.latitude)) *
+                      math.cos(math.radians(math.fabs(
+                          degCoord1.longitude -
+                          degCoord2.longitude))))
+    distance = 6371009 * angle
+
     diffCoord = GeoCoord(degCoord2.latitude - degCoord1.latitude,
                          degCoord2.longitude - degCoord1.longitude)
-    x = diffCoord.longitude / 360 * 40000
-    y = diffCoord.latitude / 360 * 40000
+    x = diffCoord.longitude * (40000000 / 360)
+    y = diffCoord.latitude * (40000000 / 360)
     R = (y ** 2 + x ** 2) ** .5
-    theta = atan2(y, x)
-    print(R)
-    print(theta)
+    theta = math.atan2(y, x)
+
+    print("Resultant Vector:")
+    print(f'  Components: ({x:.2f}î, {y:.2f}ĵ) m')
+    print(f'  R:           {R:.2f} m')
+    print(f'  θ:           {theta:.2f}°')
 
 state = 0
 while state != 3:

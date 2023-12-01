@@ -1,0 +1,131 @@
+* ENGR 110 Vector Project
+
+Section: 3
+
+Team #9
+Names: Seth Bohannon, Sam Downs, Kristina Nguyen, Gia Patel
+
+* Part 1:Code Structure
+** Input
+ - Need user's menu choice
+ - Need 1 or 2 latitude/longitude pairs
+
+** Branching
+ - 3 Branches
+   - if choice1:
+   - function1
+   - elif choice2:
+   - function2
+   - else:
+   - exit
+
+** Loops
+ - Loop should stop when the user says they're done: choice == 3
+ - Loop needs to prompt user for choice + handle each choice
+
+
+** Functions
+ - Before they're called
+ - After they're defined
+
+* Part 2: Develop and Test Structure
+1. "write a python program that can get the distance and angle between two
+   points given longitude and latitude
+2. No changes were made to the promptxs
+3. My test case was our original points and seeing if the output matched what we
+   measured. The generated code made output that matched what we measured.
+4. The generated code had no syntax errors
+   
+* Part 3: Function Development
+** Function 1 (DDD°MM′SS″-> DDD.DDD°)
+*** Purpose
+Convert the supplied latitude and longitude in DDD°MM′SS″ format to a DDD.DDD° format.
+
+*** Concepts Needed
+**** Input
+The degrees, minutes, and seconds of the latitude and longitude both
+
+**** Output
+The degrees in decimal of the latitude and longitude both
+
+**** Calculations
+\(Decimal = Angle_d + Angle_m / 60 + Angle_s / 3600\)
+
+\(longitude = 38 + 13 / 60 + 57.86 / 3600 = 38.2327388889\)
+
+\(latitude = 85 + 45 / 60 + 27.94 / 3600 = 85.7577611111\)
+
+** Function 2 (Distance between points)
+*** Purpose
+Given two points in geographic coordinates (longitude, latitude), calculates the
+distance between them on the Earth's surface
+
+*** Concepts Needed
+**** Input
+The longitude and latitude of the two points
+
+**** Output
+The distance between the two points in meters, the components of the distance
+vector, and the standard angle between east and the vector
+
+**** Calculations
+
+\(x_1 = deg_\mathrm{long_1} * \frac{C}{360}\)
+
+\(y_1 = deg_\mathrm{lat_1} * \frac{C}{360}\)
+
+\(x_2 = deg_\mathrm{long_2} * \frac{C}{360}\)
+
+\(y_2 = deg_\mathrm{lat_2} * \frac{C}{360}\)
+
+\(x = x_1 - x_2\)
+
+\(y = y_1 - y_2\)
+
+\(distance = \sqrt{x ^ 2 + y ^ 2}\)
+
+\(angle = atan2(x, y)\)
+
+\(x_1 = 85.7577611111 * \frac{40000}{360} = 9528.64012344\)
+
+\(y_1 = 38.2160722222 * \frac{40000}{360} = 4246.23024692\)
+
+\(x_2 = 85.7594027778 * \frac{40000}{360} = 9528.82253086\)
+
+\(y_2 = 38.2155055556 * \frac{40000}{360} = 4246.16728394\)
+
+\(x = 9528.64012344 - 9528.82253086 = -0.18240742\)
+
+\(y = 4246.16728394 - 4246.23024692 = -0.06296298\)
+
+\(distance = \sqrt{0.06296298 ^ 2 + 0.18240742 ^ 2} = 0.192968400837\)
+
+\(angle = atan2(-0.18240742, -0.06296298) * 180 / \pi = -160.96\)
+
+* Part 4 Develop and Test Functions
+** Function 1
+1. "Write a python program that will convert a degrees-minutes-seconds angle to
+   decimal degrees"
+2. No changes were made to the prompt.
+3. Test case was point K and it was compared to the result calculated in
+   part 3. The generated result matched the manually calculated one.
+4. No changes were made.
+
+** Function 2
+1. "Write a python program that will calculate the distance and angle between
+   two points given in longitude and latitude"
+2. No changes were made to the prompt.
+3. Test case was points K and E and the program was compared to the result
+   calculated in part 3. The generated result matched the manual calculated one.
+4. No changes were made
+
+* Part 5 Structure and Function Integration
+1. After the menu option is selected inside the loop, before the function call
+2. After the menu option is selected inside the loop, after the function call
+3. "convertGeoToDeg()" and "convertGeoToDistance()"
+
+* Part 6 Resultant Vector
+1. 38°12′57.86″ N 85°45′27.94″ W
+2. 38°12′55.82″ N 85°45′33.85″ W
+3. (182.41î, -62.96ĵ)
+4. 192.97 m -160.96°

@@ -1,0 +1,29 @@
+% Intro/Purpose
+The purpose of the Python program is to calculate the distance and angle between
+two points on Earth's surface. The program does this by offering two functions;
+one can convert the degrees-minutes-seconds(dms) that longitude and latitude are
+typically represented in into decimal degrees. And a second function that can
+take two points in decimal longitude and latitude and calculate the distance and
+angle between the two points. Thus the two functions can easily be used to
+convert longitude and latitude acquired from a map or GPS into a distance and
+angle.
+
+% Coding process
+The program was written by breaking down the goal into smaller and smaller
+components until it was trivial to implement. Each component was written as its
+own function that could be called by each other to be formed into the final
+function. For example function one calls a function to get the user's input and
+then passes that input to a function that converts the dms angle into a decimal
+angle. Then it prints out the converted angle in a nice, human friendly
+way. Coding this way was quite simple since each function was either simple
+enough to code directly or complex enough to be split into simpler functions
+that were then considered.
+
+% Overall structure
+The program's overall structure is quite simple. Program execution begins in a
+loop, where the user is prompted to select from a menu. Selected option one or two
+executes function one or two before finishing the loop. The loop will repeat as
+long as the user does not select option three from the menu; continiously
+prompting for a selection and executing a function if selected.
+
+% Function 1 dms -> decimal

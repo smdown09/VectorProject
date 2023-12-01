@@ -1,0 +1,208 @@
+% Created 2023-11-27 Mon 15:48
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.1 (Org mode 9.6.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\section{ENGR 110 Vector Project}
+\label{sec:orgd0fbdbd}
+
+Section: 3
+
+Team \#9
+Names: Seth Bohannon, Sam Downs, Kristina Nguyen, Gia Patel
+
+\section{Part 1:Code Structure}
+\label{sec:org4fc02d6}
+\subsection{Input}
+\label{sec:orgb84237e}
+\begin{itemize}
+\item Need user's menu choice
+\item Need 1 or 2 latitude/longitude pairs
+\end{itemize}
+
+\subsection{Branching}
+\label{sec:org94c58a2}
+\begin{itemize}
+\item 3 Branches
+\begin{itemize}
+\item if choice1:
+\item function1
+\item elif choice2:
+\item function2
+\item else:
+\item exit
+\end{itemize}
+\end{itemize}
+
+\subsection{Loops}
+\label{sec:orga21996d}
+\begin{itemize}
+\item Loop should stop when the user says they're done: choice == 3
+\item Loop needs to prompt user for choice + handle each choice
+\end{itemize}
+
+
+\subsection{Functions}
+\label{sec:org38f350f}
+\begin{itemize}
+\item Before they're called
+\item After they're defined
+\end{itemize}
+
+\section{Part 2: Develop and Test Structure}
+\label{sec:orga00df4d}
+\begin{enumerate}
+\item "write a python program that can get the distance and angle between two
+points given longitude and latitude
+\item No changes were made to the promptxs
+\item My test case was our original points and seeing if the output matched what we
+measured. The generated code made output that matched what we measured.
+\item The generated code had no syntax errors
+\end{enumerate}
+
+\section{Part 3: Function Development}
+\label{sec:org1fe3012}
+\subsection{Function 1 (DDD°MM′SS″-> DDD.DDD°)}
+\label{sec:org9e031f2}
+\subsubsection{Purpose}
+\label{sec:org2640c33}
+Convert the supplied latitude and longitude in DDD°MM′SS″ format to a DDD.DDD° format.
+
+\subsubsection{Concepts Needed}
+\label{sec:org3a8c81d}
+\begin{enumerate}
+\item Input
+\label{sec:org6b10d6e}
+The degrees, minutes, and seconds of the latitude and longitude both
+
+\item Output
+\label{sec:org76c54e8}
+The degrees in decimal of the latitude and longitude both
+
+\item Calculations
+\label{sec:org39da4bc}
+\(Decimal = Angle_d + Angle_m / 60 + Angle_s / 3600\)
+
+\(longitude = 38 + 13 / 60 + 57.86 / 3600 = 38.2327388889\)
+
+\(latitude = 85 + 45 / 60 + 27.94 / 3600 = 85.7577611111\)
+\end{enumerate}
+
+\subsection{Function 2 (Distance between points)}
+\label{sec:orgf80e226}
+\subsubsection{Purpose}
+\label{sec:org6eb4796}
+Given two points in geographic coordinates (longitude, latitude), calculates the
+distance between them on the Earth's surface
+
+\subsubsection{Concepts Needed}
+\label{sec:orga7375a2}
+\begin{enumerate}
+\item Input
+\label{sec:orgc0c06cc}
+The longitude and latitude of the two points
+
+\item Output
+\label{sec:org9eff13f}
+The distance between the two points in meters, the components of the distance
+vector, and the standard angle between east and the vector
+
+\item Calculations
+\label{sec:orgffb798c}
+
+\(x_1 = deg_\mathrm{long_1} * \frac{C}{360}\)
+
+\(y_1 = deg_\mathrm{lat_1} * \frac{C}{360}\)
+
+\(x_2 = deg_\mathrm{long_2} * \frac{C}{360}\)
+
+\(y_2 = deg_\mathrm{lat_2} * \frac{C}{360}\)
+
+\(x = x_1 - x_2\)
+
+\(y = y_1 - y_2\)
+
+\(distance = \sqrt{x ^ 2 + y ^ 2}\)
+
+\(angle = atan2(x, y)\)
+
+\(x_1 = 85.7577611111 * \frac{40000}{360} = 9528.64012344\)
+
+\(y_1 = 38.2160722222 * \frac{40000}{360} = 4246.23024692\)
+
+\(x_2 = 85.7594027778 * \frac{40000}{360} = 9528.82253086\)
+
+\(y_2 = 38.2155055556 * \frac{40000}{360} = 4246.16728394\)
+
+\(x = 9528.64012344 - 9528.82253086 = -0.18240742\)
+
+\(y = 4246.16728394 - 4246.23024692 = -0.06296298\)
+
+\(distance = \sqrt{0.06296298 ^ 2 + 0.18240742 ^ 2} = 0.192968400837\)
+
+\(angle = atan2(0.18240742, 0.06296298) * 180 / \pi = -160.96\)
+\end{enumerate}
+
+\section{Part 4 Develop and Test Functions}
+\label{sec:orgfb75247}
+\subsection{Function 1}
+\label{sec:orgf96b592}
+\begin{enumerate}
+\item "Write a python program that will convert a degrees-minutes-seconds angle to
+decimal degrees"
+\item No changes were made to the prompt.
+\item Test case was point K and it was compared to the result calculated in
+part 3. The generated result matched the manually calculated one.
+\item No changes were made.
+\end{enumerate}
+
+\subsection{Function 2}
+\label{sec:org4038245}
+\begin{enumerate}
+\item "Write a python program that will calculate the distance and angle between
+two points given in longitude and latitude"
+\item No changes were made to the prompt.
+\item Test case was points K and E and the program was compared to the result
+calculated in part 3. The generated result matched the manual calculated one.
+\item No changes were made
+\end{enumerate}
+
+\section{Part 5 Structure and Function Integration}
+\label{sec:org3a9e8b4}
+\begin{enumerate}
+\item After the menu option is selected inside the loop, before the function call
+\item After the menu option is selected inside the loop, after the function call
+\item "convertGeoToDeg()" and "convertGeoToDistance()"
+\end{enumerate}
+
+\section{Part 6 Resultant Vector}
+\label{sec:org825a378}
+\begin{enumerate}
+\item 38°12′57.86″ N 85°45′27.94″ W
+\item 38°12′55.82″ N 85°45′33.85″ W
+\item (182.41î, -62.96ĵ)
+\item 192.97 m -160.96°
+\end{enumerate}
+\end{document}
