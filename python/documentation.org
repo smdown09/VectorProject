@@ -1,11 +1,7 @@
-* ENGR 110 Vector Project
+#+title: ENGR 110 Vector Project
+#+author: Seth Bohannon, Sam Downs, Kristina Nguyen, Gia Patel
 
-Section: 3
-
-Team #9
-Names: Seth Bohannon, Sam Downs, Kristina Nguyen, Gia Patel
-
-* Part 1:Code Structure
+* Code Structure
 ** Input
  - Need user's menu choice
  - Need 1 or 2 latitude/longitude pairs
@@ -28,7 +24,7 @@ Names: Seth Bohannon, Sam Downs, Kristina Nguyen, Gia Patel
  - Before they're called
  - After they're defined
 
-* Part 2: Develop and Test Structure
+* Develop and Test Structure
 1. "write a python program that can get the distance and angle between two
    points given longitude and latitude
 2. No changes were made to the promptxs
@@ -36,7 +32,7 @@ Names: Seth Bohannon, Sam Downs, Kristina Nguyen, Gia Patel
    measured. The generated code made output that matched what we measured.
 4. The generated code had no syntax errors
    
-* Part 3: Function Development
+* Function Development
 ** Function 1 (DDD°MM′SS″-> DDD.DDD°)
 *** Purpose
 Convert the supplied latitude and longitude in DDD°MM′SS″ format to a DDD.DDD° format.
@@ -84,7 +80,7 @@ vector, and the standard angle between east and the vector
 
 \(distance = \sqrt{x ^ 2 + y ^ 2}\)
 
-\(angle = atan2(x, y)\)
+\(angle = atan2(y, x)\)
 
 \(x_1 = 85.7577611111 * \frac{40000}{360} = 9528.64012344\)
 
@@ -102,7 +98,7 @@ vector, and the standard angle between east and the vector
 
 \(angle = atan2(-0.18240742, -0.06296298) * 180 / \pi = -160.96\)
 
-* Part 4 Develop and Test Functions
+* Develop and Test Functions
 ** Function 1
 1. "Write a python program that will convert a degrees-minutes-seconds angle to
    decimal degrees"
@@ -119,13 +115,13 @@ vector, and the standard angle between east and the vector
    calculated in part 3. The generated result matched the manual calculated one.
 4. No changes were made
 
-* Part 5 Structure and Function Integration
+* Structure and Function Integration
 1. After the menu option is selected inside the loop, before the function call
 2. After the menu option is selected inside the loop, after the function call
 3. "convertGeoToDeg()" and "convertGeoToDistance()"
 
-* Part 6 Resultant Vector
-1. 38°12′57.86″ N 85°45′27.94″ W
-2. 38°12′55.82″ N 85°45′33.85″ W
-3. (182.41î, -62.96ĵ)
-4. 192.97 m -160.96°
+* Resultant Vector
+1. 38.2161° N 85.7578° W
+2. 38.2155° N 85.7594° W
+3. (-177.78î, -66.67ĵ) m
+4. 189.87 m -159.44°

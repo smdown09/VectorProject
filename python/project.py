@@ -1,3 +1,8 @@
+# Team #9
+# Names: Seth Bohannon, Sam Downs, Kristina Nguyen, Gia Patel
+# Date: 2023-12-01
+# Section: 03
+
 from dataclasses import dataclass
 import math
 
@@ -14,24 +19,21 @@ class GeoCoord:
     longitude: Angle
 
 def mainMenu():
-    print("1) placeholder\n" +
-          "2) placeholder 2\n" +
-          "3) Exit\n" +
-          "Please Enter What You Want to do: ", end='')
-    return int(input())
+    print("1) dms to Decimal\n" +
+          "2) Coordinates to Vector\n" +
+          "3) Exit\n",
+          end="")
+    return int(input("Please Enter What You Want to do: "))
 
 def inputGeo():
-    print("Please Enter the Latitude's Degrees, Minutes, and Seconds: ")
-    lat = inputAngle()
-    print("Please Enter the Longitude's Degrees, Minutes, and Seconds: ")
-    lon = inputAngle()
-    return GeoCoord(lat, lon)
+    lat = float(input("Please input the latitude: "))
+    long = float(input("Please input the longitude: "))
+    return GeoCoord(lat, long)
 
 def inputAngle():
     isNegative = False
     degs = int(input("Degrees: "))
     if degs < 0:
-        degs = -degs
         isNegative = True
     mins = int(input("Minutes: "))
     secs = float(input("Seconds: "))
@@ -61,17 +63,19 @@ def geoToString(geo):
     return f'{lat} {lon}'
 
 def convertGeoToDeg():
-    geoCoord = inputGeo()
-    degCoord = geoToDeg(geoCoord)
-    print(f'{geoToString(geoCoord)} is {degCoord.latitude:.4f}°N\
- {degCoord.longitude:.4f}°W')
+    angle = inputAngle()
+    decimal = angleToDecimal(angle) 
+    print(f'{angleToString(angle)} is {decimal:.4f}°')
 
 def convertGeoToDistance():
-    geoCoord = inputGeo()
-    degCoord1 = geoToDeg(geoCoord)
+    latitude = float(input("Please input Latitude 1: "))
+    longitude = float(input("Please input Longitude 1: "))
+    degCoord1 = GeoCoord(latitude, longitude)
 
-    geoCoord = inputGeo()
-    degCoord2 = geoToDeg(geoCoord)
+    latitude = float(input("Please input Latitude 2: "))
+    longitude = float(input("Please input Longitude 2: "))
+    degCoord2 = GeoCoord(latitude, longitude)
+    
 
     angle = math.acos(math.sin(math.radians(degCoord1.latitude)) *
                       math.sin(math.radians(degCoord2.latitude))
@@ -88,7 +92,7 @@ def convertGeoToDistance():
     x = diffCoord.longitude * (40000000 / 360)
     y = diffCoord.latitude * (40000000 / 360)
     R = (y ** 2 + x ** 2) ** .5
-    theta = math.atan2(y, x)
+    theta = math.degrees(math.atan2(y, x))
 
     print("Resultant Vector:")
     print(f'  Components: ({x:.2f}î, {y:.2f}ĵ) m')
